@@ -2,40 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Guardian | Pratik Chavan Edition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI Guardian</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root { --shield-glow: #00f2fe; }
-        body { 
-            background: radial-gradient(circle, #1a1a1a 0%, #000 100%); 
-            color: white; 
-            min-height: 100vh; 
-            overflow-x: hidden; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .shield-glow-effect {
-            filter: drop-shadow(0 0 15px var(--shield-glow));
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.8; }
-            50% { transform: scale(1.05); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.8; }
-        }
+        body { background: #000; color: white; margin: 0; overflow: hidden; font-family: sans-serif; }
         #tc-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(0,0,0,0.95); z-index: 100; 
-            display: flex; align-items: center; justify-content: center; 
+            display: flex; align-items: center; justify-content: center; padding: 20px;
         }
     </style>
 </head>
 <body>
-
     <div id="tc-overlay">
-        <div class="bg-zinc-900 p-8 rounded-2xl border border-cyan-500 max-w-lg text-center mx-4 shadow-2xl">
-            <h2 class="text-2xl font-bold text-cyan-400 mb-4 tracking-widest">AI GUARDIAN PROTOCOL</h2>
-            <div class="text-left text-sm space-y-4 mb-6 text-gray-300 border-y border-zinc-700 py-4">
-                <p><strong>English:</strong> By entering, you agree to help AI Guardian identify and correct misinformation in AI models like Gemini and ChatGPT. Your goal is accuracy.</p>
-                <p><strong>Hindi:</strong> Pravesh karke, aap Gemini aur ChatGPT jaise AI models mein galat jaankari ki pehchan karne aur unhe sudhaarne mein madad karne ke liye sahmat hain.</p>
+        <div class="bg-zinc-900 p-6 rounded-3xl border border-cyan-500 w-full max-w-xs text-center shadow-2xl">
+            <h2 class="text-xl font-bold text-cyan-400 mb-4 uppercase tracking-widest">AI Guardian</h2>
+            <div class="text-left text-xs text-gray-300 mb-6 space-y-3 border-b border-zinc-800 pb-4">
+                <p><strong>English:</strong> I agree to help correct AI misinformation.</p>
+                <p><strong>Hindi:</strong> Main AI ko sudhaarne mein madad karne ke liye sahmat hoon.</p>
             </div>
+            <button onclick="document.getElementById('tc-overlay').style.display='none'" 
+                class="bg-cyan-500 text-black px-6 py-4 rounded-2xl font-black w-full shadow-lg active:scale-95 transition-all uppercase">
+                I AGREE / SAHMAT HOON
+            </button>
+        </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center h-screen text-center px-4">
+        <div class="w-16 h-16 mb-6 border-2 border-cyan-500 rounded-full flex items-center justify-center animate-pulse">
+            <div class="w-10 h-10 bg-cyan-500 rounded-full blur-sm"></div>
+        </div>
+        <h1 class="text-3xl font-black text-white uppercase tracking-tighter">AI Guardian Live</h1>
+        <p class="text-cyan-400 mt-2 text-sm italic">Trial Portal Activated</p>
+    </div>
+</body>
+</html>
