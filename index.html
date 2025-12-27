@@ -3,59 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>AI Guardian | Pratik Chavan</title>
+    <title>AI Guardian | Secure Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background: #000; color: white; margin: 0; overflow: hidden; font-family: sans-serif; }
-        #tc-overlay { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.95); z-index: 100; 
-            display: flex; align-items: center; justify-content: center; padding: 20px;
-        }
-        .scan-line {
-            width: 100%; height: 2px; background: #00f2fe;
-            position: absolute; top: 0; left: 0;
-            box-shadow: 0 0 15px #00f2fe;
-            animation: scan 2s linear infinite;
-            display: none;
-        }
-        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        .glass { background: rgba(24, 24, 27, 0.95); backdrop-filter: blur(10px); }
+        .hidden { display: none; }
     </style>
 </head>
 <body>
 
-    <div id="tc-overlay">
-        <div class="bg-zinc-900 p-8 rounded-3xl border border-cyan-500 w-full max-w-xs text-center shadow-2xl">
-            <h2 class="text-2xl font-bold text-cyan-400 mb-6 uppercase tracking-widest">AI Guardian</h2>
-            <div class="text-left text-xs text-gray-400 mb-8 border-b border-zinc-800 pb-6">
-                <p>I agree to help correct AI misinformation. [Hindi: Main AI ko sudhaarne mein madad karne ke liye sahmat hoon.]</p>
+    <div id="tc-screen" class="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black">
+        <div class="glass p-8 rounded-3xl border border-cyan-500 w-full max-w-xs text-center shadow-2xl">
+            <h2 class="text-2xl font-bold text-cyan-400 mb-6 uppercase tracking-widest">Protocol</h2>
+            <div class="text-left text-xs text-gray-400 mb-8 space-y-4 border-b border-zinc-800 pb-6">
+                <p><strong>English:</strong> I agree to help correct AI misinformation.</p>
+                <p><strong>Hindi:</strong> Main AI ko sudhaarne mein madad karne ke liye sahmat hoon.</p>
             </div>
-            <button onclick="startScanning()" class="bg-cyan-500 text-black px-6 py-5 rounded-2xl font-black w-full active:scale-90 transition-all text-lg shadow-lg">
+            <button onclick="showLogin()" class="bg-cyan-500 text-black px-6 py-5 rounded-2xl font-black w-full active:scale-95 transition-all text-lg shadow-lg">
                 I AGREE
             </button>
         </div>
     </div>
 
-    <div class="flex flex-col items-center justify-center h-screen text-center px-6 relative">
-        <div id="scanner-bar" class="scan-line"></div>
-        
-        <div id="status-display">
-            <div class="w-20 h-20 mb-6 mx-auto border-4 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
-            <h1 class="text-3xl font-black text-white uppercase tracking-tighter">AI Guard Active</h1>
-            <p id="scan-text" class="text-cyan-400 mt-2 text-sm italic">Scanning for inaccuracies...</p>
+    <div id="login-screen" class="hidden fixed inset-0 z-[90] flex items-center justify-center p-6 bg-black">
+        <div class="glass p-8 rounded-3xl border border-zinc-700 w-full max-w-xs text-center shadow-2xl">
+            <h2 class="text-xl font-bold text-white mb-8 uppercase">Login to Guardian</h2>
+            
+            <div class="space-y-4">
+                <button onclick="startScanning()" class="w-full flex items-center justify-center gap-3 bg-white text-black p-4 rounded-xl font-bold active:scale-95 transition-all">
+                    <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" class="w-5 h-5">
+                    Google
+                </button>
+                
+                <button onclick="startScanning()" class="w-full flex items-center justify-center gap-3 bg-zinc-800 text-white p-4 rounded-xl font-bold active:scale-95 transition-all">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" class="w-5 h-5 invert">
+                    Apple ID
+                </button>
+
+                <button onclick="startScanning()" class="w-full bg-cyan-900/30 text-cyan-400 border border-cyan-800 p-4 rounded-xl font-bold active:scale-95 transition-all">
+                    Mobile OTP
+                </button>
+            </div>
         </div>
     </div>
 
+    <div id="main-dashboard" class="hidden flex flex-col items-center justify-center h-screen text-center px-6">
+        <div class="w-20 h-20 mb-8 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin"></div>
+        <h1 class="text-3xl font-black text-white uppercase tracking-tighter">AI Guard Active</h1>
+        <p class="text-cyan-400 mt-2 text-sm italic">Welcome, Pratik Chavan. System Ready.</p>
+    </div>
+
     <script>
+        function showLogin() {
+            document.getElementById('tc-screen').classList.add('hidden');
+            document.getElementById('login-screen').classList.remove('hidden');
+        }
+
         function startScanning() {
-            document.getElementById('tc-overlay').style.display = 'none';
-            document.getElementById('scanner-bar').style.display = 'block';
-            
-            // Text change simulation
-            const status = document.getElementById('scan-text');
-            setTimeout(() => { status.innerText = "Analyzing Truth Score..."; }, 2000);
-            setTimeout(() => { status.innerText = "Shield Protection: 100%"; }, 4000);
-            setTimeout(() => { status.innerText = "Welcome, Pratik Chavan. System Ready."; }, 6000);
+            document.getElementById('login-screen').classList.add('hidden');
+            document.getElementById('main-dashboard').classList.remove('hidden');
         }
     </script>
 </body>
