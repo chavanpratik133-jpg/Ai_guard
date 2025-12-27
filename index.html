@@ -6,83 +6,81 @@
     <title>AI Guardian | Pratik Chavan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Logo ke background color se match karne ke liye color change kiya hai */
-        body { background: #0a0a0a; color: white; margin: 0; overflow: hidden; font-family: sans-serif; }
-        .glass { background: rgba(20, 20, 20, 0.95); backdrop-filter: blur(15px); border: 1px solid rgba(34, 211, 238, 0.1); }
+        body { background: #000000; color: white; margin: 0; font-family: sans-serif; min-height: 100vh; }
+        .glass { background: rgba(15, 15, 15, 0.98); backdrop-filter: blur(20px); border: 1px solid rgba(34, 211, 238, 0.15); }
         .hidden { display: none; }
-        .logo-glow { filter: drop-shadow(0 0 20px rgba(34, 211, 238, 0.4)); }
-        .scroll-container::-webkit-scrollbar { width: 4px; }
-        .scroll-container::-webkit-scrollbar-thumb { background: #22d3ee; border-radius: 10px; }
+        .logo-glow { filter: drop-shadow(0 0 25px rgba(34, 211, 238, 0.5)); }
+        /* Pura interface scrollable rahega taaki Agree button dikhe */
+        .content-wrapper { overflow-y: auto; max-height: 100vh; padding-bottom: 40px; }
     </style>
 </head>
-<body>
+<body class="flex flex-col items-center">
 
-    <div id="tc-screen" class="fixed inset-0 z-[100] flex items-center justify-center p-5 bg-[#0a0a0a]">
-        <div class="glass p-7 rounded-[2.5rem] w-full max-w-sm text-center shadow-2xl">
-            <div class="mb-6">
-                <img src="IMG_1165.png" alt="AI Guardian Logo" class="w-32 h-32 mx-auto mb-2 logo-glow rounded-2xl object-contain">
-                <p class="text-[10px] text-cyan-400 tracking-[0.2em] uppercase font-bold px-2 leading-relaxed">Guarding Truth in the Age of AI</p>
+    <div id="tc-screen" class="w-full max-w-sm content-wrapper p-4">
+        <div class="glass p-8 rounded-[3rem] text-center shadow-2xl mt-6">
+            <div class="mb-8">
+                <img src="IMG_1165.png" alt="AI Guardian Logo" class="w-32 h-32 mx-auto mb-4 logo-glow rounded-[2rem] object-cover">
+                <p class="text-[11px] text-cyan-400 tracking-[0.25em] font-black uppercase">Guarding Truth in the Age of AI</p>
             </div>
 
-            <h2 class="text-xl font-black text-white mb-4 uppercase italic tracking-tighter">Protocol Agreement</h2>
+            <h2 class="text-2xl font-black text-white mb-8 uppercase italic border-b border-zinc-800 pb-2">Protocol</h2>
             
-            <div class="scroll-container overflow-y-auto max-h-[220px] text-left mb-6 pr-2">
-                <div class="mb-6">
-                    <p class="text-cyan-500 text-[10px] font-bold uppercase mb-2 border-b border-cyan-900 pb-1">English Protocol:</p>
-                    <ul class="text-[11px] text-gray-400 space-y-2 leading-snug">
-                        <li class="flex gap-2"><span>•</span> <span>I agree to help correct AI-generated misinformation.</span></li>
-                        <li class="flex gap-2"><span>•</span> <span>I will verify data accuracy with honesty.</span></li>
-                    </ul>
-                </div>
+            <div class="text-left space-y-8 mb-10">
                 
-                <div>
-                    <p class="text-cyan-500 text-[10px] font-bold uppercase mb-2 border-b border-cyan-900 pb-1 italic">Hindi Protocol (हिन्दी):</p>
-                    <ul class="text-[13px] text-gray-200 space-y-4 leading-relaxed font-medium">
-                        <li class="flex gap-2 border-l-2 border-cyan-800 pl-2">
-                             <span>Main AI dwara di gayi galat jaankari ko sudhaarne mein madad karne ke liye sahmat hoon.</span>
-                        </li>
-                        <li class="flex gap-2 border-l-2 border-cyan-800 pl-2">
-                             <span>Main jaankari ki satyata ki jaanch poori imandari se karunga.</span>
-                        </li>
-                    </ul>
+                <div class="space-y-2 border-l-2 border-cyan-500 pl-4">
+                    <p class="text-[12px] text-gray-400 font-medium">I agree to help correct AI-generated misinformation.</p>
+                    <p class="text-[14px] text-white font-bold">Main AI dwara di gayi galat jaankari ko sudhaarne mein madad karne ke liye sahmat hoon.</p>
                 </div>
+
+                <div class="space-y-2 border-l-2 border-cyan-500 pl-4">
+                    <p class="text-[12px] text-gray-400 font-medium">I will verify data accuracy with honesty.</p>
+                    <p class="text-[14px] text-white font-bold">Main jaankari ki satyata ki jaanch poori imandari se karunga.</p>
+                </div>
+
+                <div class="space-y-2 border-l-2 border-cyan-500 pl-4">
+                    <p class="text-[12px] text-gray-400 font-medium">My ethics score depends on my reports.</p>
+                    <p class="text-[14px] text-white font-bold">Mera ethics score mere kaam ki accuracy par aadharit hoga.</p>
+                </div>
+
             </div>
 
-            <button onclick="showLogin()" class="bg-cyan-500 text-black px-6 py-4 rounded-2xl font-black w-full shadow-[0_10px_30px_rgba(34,211,238,0.3)] uppercase tracking-widest active:scale-95 transition-all">
-                Accept & Continue
+            <button onclick="showLogin()" class="bg-cyan-500 text-black py-5 rounded-2xl font-black w-full shadow-xl uppercase tracking-widest text-sm active:scale-95 transition-all">
+                I Agree & Continue
             </button>
         </div>
     </div>
 
-    <div id="login-screen" class="hidden fixed inset-0 z-[90] flex items-center justify-center p-6 bg-[#0a0a0a]">
-        <div class="glass p-8 rounded-[2.5rem] w-full max-w-xs text-center">
-            <img src="IMG_1165.png" class="w-20 h-20 mx-auto mb-4 logo-glow rounded-xl">
-            <h2 class="text-lg font-bold text-white mb-8 tracking-widest uppercase">Guardian Login</h2>
-            <div class="space-y-4">
-                <button onclick="enterDashboard()" class="w-full flex items-center justify-center gap-3 bg-white text-black p-4 rounded-xl font-bold active:scale-95 transition-all">
+    <div id="login-screen" class="hidden w-full max-w-sm p-4 mt-10">
+        <div class="glass p-10 rounded-[3rem] text-center">
+            <img src="IMG_1165.png" class="w-20 h-20 mx-auto mb-6 logo-glow rounded-2xl">
+            <h2 class="text-xl font-bold text-white mb-10 tracking-[0.2em] uppercase">Guardian Login</h2>
+            <div class="space-y-5">
+                <button onclick="enterDashboard()" class="w-full flex items-center justify-center gap-4 bg-white text-black p-5 rounded-2xl font-bold shadow-lg">
                     <img src="https://www.google.com/favicon.ico" class="w-5 h-5"> Google Login
                 </button>
-                <button onclick="enterDashboard()" class="w-full flex items-center justify-center gap-3 bg-zinc-800 text-white p-4 rounded-xl font-bold active:scale-95 transition-all">
+                <button onclick="enterDashboard()" class="w-full flex items-center justify-center gap-4 bg-[#1a1a1a] text-white p-5 rounded-2xl font-bold border border-zinc-800">
                     <img src="https://www.apple.com/favicon.ico" class="w-5 h-5 invert"> Apple ID
                 </button>
             </div>
         </div>
     </div>
 
-    <div id="main-dashboard" class="hidden flex flex-col items-center justify-center h-screen text-center px-6 bg-[#0a0a0a]">
-        <img src="IMG_1165.png" class="w-40 h-40 mb-6 logo-glow animate-pulse rounded-2xl">
-        <h1 class="text-3xl font-black text-white uppercase tracking-tighter">AI Guard Active</h1>
-        <p class="text-cyan-400 mt-2 text-xs tracking-widest">WELCOME, PRATIK CHAVAN</p>
+    <div id="main-dashboard" class="hidden w-full max-w-sm text-center py-20">
+        <img src="IMG_1165.png" class="w-48 h-48 mx-auto logo-glow animate-pulse rounded-[2.5rem] mb-10">
+        <h1 class="text-4xl font-black text-white uppercase tracking-tighter italic">AI Guard Active</h1>
+        <p class="text-cyan-400 text-sm tracking-[0.4em] font-bold mt-4 uppercase">PRATIK CHAVAN</p>
     </div>
 
     <script>
         function showLogin() {
             document.getElementById('tc-screen').classList.add('hidden');
             document.getElementById('login-screen').classList.remove('hidden');
+            window.scrollTo(0,0);
         }
         function enterDashboard() {
             document.getElementById('login-screen').classList.add('hidden');
             document.getElementById('main-dashboard').classList.remove('hidden');
+            window.scrollTo(0,0);
         }
     </script>
 </body>
